@@ -1,5 +1,6 @@
 import {LitElement, html, css, property, customElement} from 'lit-element';
-import {ifDefined} from 'lit-html/directives/if-defined';
+import {ifDefined as ifd} from 'lit-html/directives/if-defined';
+import resetStyles from './reset-styles';
 
 @customElement('image-w-text')
 export class ImageWText extends LitElement {
@@ -24,9 +25,9 @@ export class ImageWText extends LitElement {
           <slot name='image'></slot>
           <img
             src='${this.src}'
-            alt='${ifDefined(this.alt)}'
-            width='${ifDefined(this.width)}'
-            height='${ifDefined(this.height)}'>
+            alt='${ifd(this.alt)}'
+            width='${ifd(this.width)}'
+            height='${ifd(this.height)}'>
         </div>
 
         <div>
@@ -41,7 +42,7 @@ export class ImageWText extends LitElement {
           }
 
           <slot name='link'></slot>
-          <a href='${this.href}' title='${ifDefined(this.linkTitle)}' target="${ifDefined(this.target)}">
+          <a href='${this.href}' title='${ifd(this.linkTitle)}' target="${ifd(this.target)}">
             ${this.linkTitle}
           </a>
         </div>
@@ -49,18 +50,23 @@ export class ImageWText extends LitElement {
     `;
   }
 
+  static get styles() {
+    return [
+      resetStyles,
+      css`
+        :host {
+          display: block;
+        }
+        @media (min-width: 768px) {
+          figure {
+            columns: 2
+          }
+        }
+      `
+    ];
+  }
 
-
-  // static get styles() {
-  //   return css`
-  //     :host {
-  //       display: block;
-  //     }
-  //     @media (min-width: 768px) {
-  //       figure {
-  //         columns: 2
-  //       }
-  //     }
-  //   `;
-  // }
+  protected createRenderRoot(): Element|ShadowRoot {
+    return this.attachShadow({mode: 'open'});
+  }
 }
