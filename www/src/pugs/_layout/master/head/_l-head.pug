@@ -1,0 +1,42 @@
+meta(charset='UTF-8')
+
+//- main
+title=page.metas.title
+meta(name='description' content=page.metas.description)
+
+//- robots
+if !isProduction
+  meta(name='robots' content='noindex, nofollow')
+
+//- mobile friendly
+meta(http-equiv='X-UA-Compatible', content='IE=edge')
+meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0')
+meta(name='msapplication-tap-highlight', content='no')
+
+//- Twitter Card data
+each meta in page.metas.twitter
+  meta(name=meta.name, content=meta.content)
+
+//- Open Graph data
+each meta in page.metas.open_graph
+  meta(property=meta.property, content=meta.content)
+
+//- Open Graph image data
+each meta in page.metas.open_graph_image
+  meta(property=meta.property, content=meta.content)
+
+//- favicon
+each file in page.favicon
+  link(rel=file.rel, sizes=file.sizes, href=file.href)
+
+//- windows settings
+each meta in page.metas.windows
+  meta(name=meta.name, content=meta.content)
+
+//- android settings
+each meta in page.metas.android
+  meta(name=meta.name content=meta.content)
+
+//- styles
+each file in page.styles
+  link(rel='stylesheet', type='text/css', href=file)

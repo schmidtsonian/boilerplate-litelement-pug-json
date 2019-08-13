@@ -1,0 +1,23 @@
+doctype html
+html(lang='en')
+
+  head
+    include head/_l-head
+
+    if !isProduction && page.bugherd_api
+      include scripts/_bugherd
+
+    if page.gtm
+      include analytics/_gtm-head
+  body
+    if page.gtm
+      include analytics/_gtm-body
+
+    include svgs/_l-svgs
+    include _l-header
+
+    main.l-main-container(id='js-main-container')
+      block body
+
+    include _l-footer
+    include scripts/_l-scripts

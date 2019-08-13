@@ -1,0 +1,42 @@
+
+/*=============================================
+=               Document states               =
+=============================================*/
+
+@mixin document-is-loaded {
+
+  body.is-loaded {
+    @content;
+  }
+}
+
+@mixin document-is-instro {
+
+  body.is-intro.is-loaded {
+    @content;
+  }
+}
+
+@mixin is-menu-active {
+
+  html.is-menu-active {
+    @include breakpoint($SM - 1, 'max-width') {
+      overflow: hidden;
+    }
+    @content;
+  }
+}
+
+@mixin is-mobile {
+
+  html.is-mobile {
+    @content;
+  }
+}
+
+@mixin is-desktop {
+
+  html:not(.is-mobile) {
+    @content;
+  }
+}

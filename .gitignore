@@ -1,0 +1,7 @@
+.DS_Store
+html
+bower_components
+browserstack.err
+node_modules
+npm-debug.log
+.vscode

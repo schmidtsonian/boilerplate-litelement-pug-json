@@ -1,0 +1,36 @@
+{
+  "metas": {
+
+    "title": "Page Title",
+    "description": "Page Description",
+    "url":"https://estebanco.com/",
+    "domain": "estebanco.com",
+
+    "twitter": [
+      { "name": "twitter:card", "content": "" },
+      { "name": "twitter:site", "content": "" },
+      { "name": "twitter:title", "content": "" },
+      { "name": "twitter:description", "content": "" },
+      { "name": "twitter:image", "content": "" }
+    ],
+    "open_graph": [
+      { "property": "og:type", "content": "" },
+      { "property": "og:title", "content": "" },
+      { "property": "og:url", "content": "" },
+      { "property": "og:description", "content": "" },
+      { "property": "og:site_name", "content": "" }
+    ],
+    "open_graph_image": [
+      { "property": "og:image", "content": "" }
+    ],
+
+    "windows": [
+      { "name": "application-name", "content": "Estebanco" },
+      { "name": "msapplication-TileImage", "content": "" },
+      { "name": "msapplication-TileColor", "content": "#000000" }
+    ],
+    "android": [
+      { "name": "theme-color", "content": "#000000" }
+    ]
+  }
+}
