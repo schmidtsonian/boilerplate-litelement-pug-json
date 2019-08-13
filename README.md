@@ -49,7 +49,5 @@ make bw
 
 ### TODO
 
-- [ ] Support for TS
-- [ ] Support for litElement
 - [ ] Fix shell pretty print
 - [ ] Update to gulp 4

@@ -18,7 +18,7 @@ const isProduction  = argv.production;
 
 // Gulp Modules
 require('./gulp/tasks/clean')(gulp, config, del);
-require('./gulp/tasks/scriptsLint')(gulp, config, plugins);
+// require('./gulp/tasks/scriptsLint')(gulp, config, plugins);
 require('./gulp/tasks/scriptsWebpack')(gulp, config, browserSync, isProduction, plugins);
 require('./gulp/tasks/styles')(gulp, config, browserSync, isProduction, plugins);
 require('./gulp/tasks/imageMin')(gulp, config, browserSync, plugins);
@@ -35,17 +35,18 @@ gulp.task('jsons', function () {
     .pipe(gulp.dest(config.assets.jsons.dest));
 });
 
-gulp.task('slint', function () {
-  return gulp.src(config.scripts.src)
-    .pipe(plugins.eslint())
-    .pipe(plugins.eslint.format())
-    .pipe(plugins.eslint.failAfterError());
-});
+// gulp.task('slint', function () {
+//   return gulp.src(config.scripts.src)
+//     .pipe(plugins.eslint())
+//     .pipe(plugins.eslint.format())
+//     .pipe(plugins.eslint.failAfterError());
+// });
 gulp.task('templates', (cb) => runSequence('jsons', 'pugs', cb));
 gulp.task('images', (cb) => runSequence('imageMin', 'imageCaching', cb));
-gulp.task('scripts', (cb) => {
-  runSequence('scriptsLint', 'scriptsWebpack', cb);
-});
+// gulp.task('scripts', (cb) => {
+//   runSequence('scriptsLint', 'scriptsWebpack', cb);
+// });
+gulp.task('scripts', (cb) => { runSequence('scriptsWebpack', cb); });
 
 
 // Gulp Tasks "default"

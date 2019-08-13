@@ -51,9 +51,8 @@ module.exports = (() => {
   };
 
   const scripts = {
-    src:     `${project.src}/scripts/**/*.js`,
-    dest:    `${project.dest}/js`,
-    presets: '@babel/preset-env'
+    src:     `${project.src}/scripts/**/*.ts`,
+    dest:    `${project.dest}/js`
   };
 
   // PUGS

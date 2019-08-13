@@ -10,14 +10,13 @@ module.exports = (gulp, config, browserSync, isProduction, plugins) => {
       .pipe(plugins.webpackStream({
         cache: true,
         entry: {
-          app: ['./src/scripts/app.js'],
+          app: ['./src/scripts/app.ts'],
           vendor: [
             'jquery',
             'gsap',
             'lodash/debounce',
             'lodash/each',
             'hammerjs',
-            'babel-polyfill'
           ],
         },
         output: {
@@ -26,14 +25,9 @@ module.exports = (gulp, config, browserSync, isProduction, plugins) => {
         module: {
           rules: [
             {
-              test: /\.js$/,
-              loader: 'babel-loader',
-              exclude: /node_modules/,
-              options: {
-                presets: [config.scripts.presets],
-                cacheDirectory: true,
-                compact: false
-              }
+              test: /\.ts?$/,
+              use: 'ts-loader',
+              exclude: /node_modules/
             }
           ],
         },
@@ -45,6 +39,9 @@ module.exports = (gulp, config, browserSync, isProduction, plugins) => {
               cache: true
             })
           ]
+        },
+        resolve: {
+          extensions: ['.tsx', '.ts', '.js']
         },
         plugins: [
           new plugins.webpackStream.webpack.ProvidePlugin({

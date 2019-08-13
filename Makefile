@@ -21,12 +21,6 @@ build:
 watch:
 	@bin/tasks/watch.sh
 
-test:
-	@bin/tasks/test.sh
-
-full-test:
-	@bin/tasks/full-test.sh
-
 bw:
 	@$(MAKE) -f $(THIS_FILE) build
 	@$(MAKE) -f $(THIS_FILE) watch
@@ -52,8 +46,8 @@ templates:
 jsons:
 	@bin/tasks/jsons.sh
 
-lint:
-	@bin/tasks/lint.sh
+scripts:
+	@bin/tasks/scripts.sh
 
 help:
 	@echo "Welcome to Estebanco LitElement Pug+TypeScript+JSONS!"
@@ -67,10 +61,6 @@ help:
 	@echo "		- Build the site for production"
 	@echo "	make watch"
 	@echo "		- Build and serve the site on port 3000 and watch for changes"
-	@echo "	make test"
-	@echo "		- Run all tests excluding acceptance tests"
-	@echo "	make full-test"
-	@echo "		- Run all tests including acceptance tests"
 	@echo "	make bw"
 	@echo "		- Build, Watch"
 	@echo "	make ssh"
@@ -87,7 +77,7 @@ help:
 	@echo "		- Merge JSONS files and build pugs templates"
 	@echo "	make jsons"
 	@echo "		- Merge JSONS files"
-	@echo "	make lint"
-	@echo "		- Run esLint"
+	@echo "	make scripts"
+	@echo "		- Merge scripts files"
 
-.PHONY: coffee start deps build watch test full-test bw ssh rebuild stop restart clean templates jsons lint
+.PHONY: coffee start deps build watch bw ssh rebuild stop restart clean templates jsons scripts

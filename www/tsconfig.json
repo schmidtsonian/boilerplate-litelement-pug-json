@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+
+    "sourceMap":true,
+    "allowJs":true,
+
+    "rootDir":"./",
+    "outDir": "./html/js",
+
+    "moduleResolution":"node",
+    "experimentalDecorators": true
+  },
+  "exclude": [
+    "node_modules",
+    "gulp",
+    "html",
+    "gulpfile.js"
+  ]
+}
