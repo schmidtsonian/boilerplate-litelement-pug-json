@@ -15,6 +15,20 @@ span {
   bottom: 0;
   left: 0;
   right: 0;
+  .is-open {
+    display: block;
+    span {
+      &:nth-child(2) {
+        display: none;
+      }
+      &:first-child {
+        transform: rotate(45deg)
+      }
+      &:last-child {
+        transform: rotate(-45deg)
+      }
+    }
+  }
 }
 nav {
   box-sizing: border-box;
@@ -26,22 +40,12 @@ nav {
   left: 0;
   background-color: black;
   padding: 100px;
+  .is-open {
+    display: block;
+
+  }
 }
 a {
   color: white;
   display: block;
-}
-
-.is-open {
-  display: block;
-
-}
-.is-open span:nth-child(2) {
-  display: none;
-}
-.is-open span:first-child {
-  transform: rotate(45deg)
-}
-.is-open span:last-child {
-  transform: rotate(-45deg)
 }

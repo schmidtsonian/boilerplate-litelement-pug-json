@@ -1,12 +1,7 @@
 extends _layout/master/_l-master
 
 block body
-  image-w-text(
-    id='js-image',
-    src='https://via.placeholder.com/150',
-    alt='lorem ipsum',
-    caption='Small Size Powerful Features',
-    description='Decrease development time of your projects by 25% with the help of our module based pattern library and spend the time for more important stuff.',
-    href='#',
-    linkTitle='Explore all the features',
-    target='_self')
+
+  h1=page.home.title
+
+  image-w-text()&attributes(page.home.component.imageWText)

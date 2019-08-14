@@ -5,6 +5,7 @@
 - Webpack
 - Php
 - Pug templates
+- Sass
 - JSON files for the data
 - TypeScript
 - LitElement
