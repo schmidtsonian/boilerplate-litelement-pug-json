@@ -9,6 +9,9 @@ module.exports = (gulp, config, browserSync, isProduction, plugins) => {
       .src(config.scripts.src)
       .pipe(plugins.webpackStream({
         cache: true,
+        resolve: {
+          extensions: ['.tsx', '.ts', '.js', '.scss']
+        },
         entry: {
           app: ['./src/scripts/app.ts'],
           vendor: [
@@ -28,7 +31,16 @@ module.exports = (gulp, config, browserSync, isProduction, plugins) => {
               test: /\.ts?$/,
               use: 'ts-loader',
               exclude: /node_modules/
-            }
+            },
+            {
+              test: /\.css|\.s(c|a)ss$/,
+              use: [{
+                loader: 'lit-scss-loader',
+                options: {
+                  minify: true, // defaults to false
+                },
+              }],
+            },
           ],
         },
         mode: isProduction? 'production' : 'development',
@@ -39,9 +51,6 @@ module.exports = (gulp, config, browserSync, isProduction, plugins) => {
               cache: true
             })
           ]
-        },
-        resolve: {
-          extensions: ['.tsx', '.ts', '.js']
         },
         plugins: [
           new plugins.webpackStream.webpack.ProvidePlugin({

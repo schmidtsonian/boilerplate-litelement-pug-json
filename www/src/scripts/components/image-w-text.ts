@@ -1,6 +1,6 @@
 import {LitElement, html, css, property, customElement} from 'lit-element';
 import {ifDefined as ifd} from 'lit-html/directives/if-defined';
-import resetStyles from './reset-styles';
+// import resetStyles from './reset-styles';
 
 @customElement('image-w-text')
 export class ImageWText extends LitElement {
@@ -52,7 +52,7 @@ export class ImageWText extends LitElement {
 
   static get styles() {
     return [
-      resetStyles,
+      // resetStyles,
       css`
         :host {
           display: block;

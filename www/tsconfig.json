@@ -9,6 +9,9 @@
 
     "rootDir":"./",
     "outDir": "./html/js",
+    "typeRoots" : [
+      "./src/typings",
+    ],
 
     "moduleResolution":"node",
     "experimentalDecorators": true
