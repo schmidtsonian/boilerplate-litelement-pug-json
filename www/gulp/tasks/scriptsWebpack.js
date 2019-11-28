@@ -13,7 +13,10 @@ module.exports = (gulp, config, browserSync, isProduction, plugins) => {
           extensions: ['.tsx', '.ts', '.js', '.scss']
         },
         entry: {
-          app: ['./src/scripts/app.ts'],
+          app: [
+            './src/scripts/app.ts',
+            'lit-element'
+          ],
           vendor: [
             'jquery',
             'gsap',

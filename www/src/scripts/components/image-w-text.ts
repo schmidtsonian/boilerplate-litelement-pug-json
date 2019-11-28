@@ -1,6 +1,5 @@
 import {LitElement, html, css, property, customElement} from 'lit-element';
 import {ifDefined as ifd} from 'lit-html/directives/if-defined';
-// import resetStyles from './reset-styles';
 
 @customElement('image-w-text')
 export class ImageWText extends LitElement {
@@ -22,7 +21,6 @@ export class ImageWText extends LitElement {
         <div>
           <slot name='title'></slot>
 
-          <slot name='image'></slot>
           <img
             src='${this.src}'
             alt='${ifd(this.alt)}'
@@ -52,7 +50,6 @@ export class ImageWText extends LitElement {
 
   static get styles() {
     return [
-      // resetStyles,
       css`
         :host {
           display: block;
@@ -64,9 +61,5 @@ export class ImageWText extends LitElement {
         }
       `
     ];
-  }
-
-  protected createRenderRoot(): Element|ShadowRoot {
-    return this.attachShadow({mode: 'open'});
   }
 }

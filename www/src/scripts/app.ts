@@ -1,6 +1,3 @@
 import './components/image-w-text';
-import './components/menu-burguer/menu-burguer';
+import '@atomical/menu-burger-boer';
 
-const image = document.getElementById('js-image');
-console.log(image);
-console.log('hello world');
